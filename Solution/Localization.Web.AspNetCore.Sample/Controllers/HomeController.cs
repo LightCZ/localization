@@ -13,14 +13,14 @@ namespace Localization.Web.AspNetCore.Sample.Controllers
 {
     public class HomeController : LoginController
     {
-        private readonly ILocalization m_localizationManager;
-        private readonly IDictionary m_dictionaryManager;
+        private readonly ILocalizationService m_localizationService;
+        private readonly IDictionaryService m_dictionaryService;
         private static readonly ILogger Logger = LogProvider.GetCurrentClassLogger();
 
-        public HomeController(ILocalization localizationManager, IDictionary dictionaryManager)
+        public HomeController(ILocalizationService localizationService, IDictionaryService dictionaryService)
         {
-            m_localizationManager = localizationManager;
-            m_dictionaryManager = dictionaryManager;
+            m_localizationService = localizationService;
+            m_dictionaryService = dictionaryService;
         }
 
         public IActionResult Index()
@@ -62,8 +62,8 @@ namespace Localization.Web.AspNetCore.Sample.Controllers
 
         public IActionResult Contact()
         {
-            var usernameTranslated = m_localizationManager.Translate("UserName", "LoginViewModel");
-            var passwordTranslated = m_localizationManager.Translate("Password");
+            var usernameTranslated = m_localizationService.Translate("UserName", "LoginViewModel");
+            var passwordTranslated = m_localizationService.Translate("Password");
 
             //return JsonConvert.SerializeObject(m_dictionaryManager.GetDictionary("home"), Formatting.Indented);
             //return Json(m_dictionaryManager.GetDictionary("home"));

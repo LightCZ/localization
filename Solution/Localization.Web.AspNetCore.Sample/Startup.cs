@@ -47,7 +47,7 @@ namespace Localization.Web.AspNetCore.Sample
             services.AddLocalizationService();
 
             services.AddSingleton<IStringLocalizerFactory, AttributeStringLocalizerFactory>();
-            services.AddScoped<DynamicText>();
+            services.AddScoped<DynamicTextService>();
 
             // Add framework services.
             services.AddMvc()

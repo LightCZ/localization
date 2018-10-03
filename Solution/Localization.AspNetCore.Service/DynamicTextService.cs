@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Http;
 
 namespace Localization.AspNetCore.Service
 {
-    public class DynamicText : ServiceBase, IDynamicText
+    public class DynamicTextService : ServiceBase, IDynamicTextService
     {
         private readonly IDatabaseDynamicTextService m_databaseDynamicTextService;
 
-        public DynamicText(IHttpContextAccessor httpContextAccessor)
+        public DynamicTextService(IHttpContextAccessor httpContextAccessor)
             : base(httpContextAccessor)
         {
             m_databaseDynamicTextService = Localization.CoreLibrary.Localization.DynamicText;

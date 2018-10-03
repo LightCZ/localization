@@ -10,9 +10,9 @@ namespace Localization.AspNetCore.Service.Extensions
         {
             services.AddSingleton<IStringLocalizerFactory, AttributeStringLocalizerFactory>();
 
-            services.AddTransient<ILocalization, LocalizationService>();
-            services.AddTransient<IDictionary, DictionaryService>();
-            services.AddTransient<IDynamicText, DynamicText>();
+            services.AddTransient<ILocalizationService, LocalizationService>();
+            services.AddTransient<IDictionaryService, DictionaryService>();
+            services.AddTransient<IDynamicTextService, DynamicTextService>();
         }
     }
 }

@@ -8,7 +8,7 @@ using Microsoft.Extensions.Localization;
 
 namespace Localization.AspNetCore.Service
 {
-    public sealed class LocalizationService : ServiceBase, ILocalization
+    public sealed class LocalizationService : ServiceBase, ILocalizationService
     {       
         private readonly IAutoLocalizationManager m_localizationManager;
 

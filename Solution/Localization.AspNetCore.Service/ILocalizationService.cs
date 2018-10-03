@@ -4,7 +4,7 @@ using Microsoft.Extensions.Localization;
 
 namespace Localization.AspNetCore.Service
 {
-    public interface ILocalization
+    public interface ILocalizationService
     {
         CultureInfo[] SupportedCultures();
 

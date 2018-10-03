@@ -4,19 +4,18 @@ using Localization.AspNetCore.Service;
 using Localization.Web.AspNetCore.Sample.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using DynamicTextService = Localization.AspNetCore.Service.DynamicText;
 using DynamicTextEntity = Localization.CoreLibrary.Entity.DynamicText;
 
 namespace Localization.Web.AspNetCore.Sample.Controllers
 {
     public class DatabaseController : Controller
     {
-        private readonly ILocalization m_localization;
+        private readonly ILocalizationService m_localizationService;
         private readonly DynamicTextService m_dynamicTextService;
 
-        public DatabaseController(ILocalization localization, DynamicTextService dynamicTextService)
+        public DatabaseController(ILocalizationService localizationService, DynamicTextService dynamicTextService)
         {
-            m_localization = localization;
+            m_localizationService = localizationService;
             m_dynamicTextService = dynamicTextService;
         }
 
@@ -37,7 +36,7 @@ namespace Localization.Web.AspNetCore.Sample.Controllers
 
         private IEnumerable<SelectListItem> GetSupportedCultures()
         {
-            IEnumerable<SelectListItem> result = m_localization.SupportedCultures().Select(i =>
+            IEnumerable<SelectListItem> result = m_localizationService.SupportedCultures().Select(i =>
                 new SelectListItem()
                 {
                     Text = i.DisplayName,

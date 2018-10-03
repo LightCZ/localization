@@ -5,7 +5,7 @@ using Microsoft.Extensions.Localization;
 
 namespace Localization.AspNetCore.Service
 {
-    public interface IDictionary
+    public interface IDictionaryService
     {
         /// <summary>
         /// Gets dictionary with keys and localized values.
